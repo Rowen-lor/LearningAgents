@@ -99,28 +99,7 @@
 ## 4. 系统集成架构
 
 ### 4.1 整体架构
-![系统架构图](https://raw.githubusercontent.com/your-username/your-repo/main/architecture.png) 
-graph LR
-    subgraph Agent层
-        A[文献搜集Agent] --> B(browser-use-mcp)
-        A --> C(filesystem-mcp)
-        A --> D(web-search-mcp)
-        A --> E(pdf-tools-mcp)
-        A --> F(api-client-mcp)
-
-        G[自动化测试Agent] --> H(browser-use-mcp)
-        G --> I(screenshot-mcp)
-        G --> J(filesystem-mcp)
-        G --> K(time-mcp)
-    end
-
-    subgraph MCP Server
-        B --> L[browser-use]
-        C --> M[filesystem]
-        D --> N[web-search]
-        E --> O[pdf-tools]
-        I --> P[screenshot]
-    end
+![image](https://github.com/user-attachments/assets/0a957c34-c53d-4f40-8b9c-99a060b2370a)
 
 ### 4.2 数据流设计
 1. **文献搜集流程**：关键词输入 → 搜索 → 筛选 → 下载 → 转换 → 整理 → 总结  
