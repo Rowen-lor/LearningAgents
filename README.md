@@ -99,26 +99,27 @@
 ## 4. 系统集成架构
 
 ### 4.1 整体架构
-┌─────────────────┐ ┌─────────────────┐
-│ 文献搜集Agent │ │ 自动化测试Agent │
-├─────────────────┤ ├─────────────────┤
-│ • 搜索模块 │ │ • 浏览器控制 │
-│ • 下载模块 │ │ • 元素识别 │
-│ • 转换模块 │ │ • 测试执行 │
-│ • 整理模块 │ │ • 报告生成 │
-└─────────────────┘ └─────────────────┘
-│ │
-└───────┬───────────────┘
-│
-┌─────────────────┐
-│ MCP Server │
-├─────────────────┤
-│ • browser-use │
-│ • filesystem │
-│ • web-search │
-│ • pdf-tools │
-│ • screenshot │
-└─────────────────┘
+graph LR
+    subgraph Agent层
+        A[文献搜集Agent] --> B(browser-use-mcp)
+        A --> C(filesystem-mcp)
+        A --> D(web-search-mcp)
+        A --> E(pdf-tools-mcp)
+        A --> F(api-client-mcp)
+
+        G[自动化测试Agent] --> H(browser-use-mcp)
+        G --> I(screenshot-mcp)
+        G --> J(filesystem-mcp)
+        G --> K(time-mcp)
+    end
+
+    subgraph MCP Server
+        B --> L[browser-use]
+        C --> M[filesystem]
+        D --> N[web-search]
+        E --> O[pdf-tools]
+        I --> P[screenshot]
+    end
 
 ### 4.2 数据流设计
 1. **文献搜集流程**：关键词输入 → 搜索 → 筛选 → 下载 → 转换 → 整理 → 总结  
