@@ -99,6 +99,7 @@
 ## 4. 系统集成架构
 
 ### 4.1 整体架构
+![系统架构图](https://raw.githubusercontent.com/your-username/your-repo/main/architecture.png) 
 graph LR
     subgraph Agent层
         A[文献搜集Agent] --> B(browser-use-mcp)
